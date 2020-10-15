@@ -5,3 +5,17 @@
 </p>
 
 <code>{{@model.body}}</code>
+
+<h4>Comments</h4>
+
+<Textarea @value={{this.commentDraft}} style="width: 400px; height: 50px" /><br>
+<button {{on "click" (action this.addComment)}}>Add comment</button>
+
+<ul>
+  {{#each @model.comments as |comment|}}
+    <li>
+      {{comment.text}}<br>
+      <small> commented on {{comment.publishedAt}}</small>
+    </li>
+  {{/each}}
+</ul>
